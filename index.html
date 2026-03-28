@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script>
+  fetch('/api/config').then(r=>r.json()).then(d=>{
+    window.__PAYSTACK_PK__       = d.paystack_public_key;
+    window.__FLW_PK__            = d.flutterwave_public_key;
+    window.__MONNIFY_API_KEY__   = d.monnify_api_key;
+    window.__MONNIFY_CONTRACT__  = d.monnify_contract_code;
+  }).catch(()=>{});
+</script>
   <title>LumaTradeFX — Institutional Smart Money Trading</title>
   '12' cy='13' r='2.5' fill='%2300d4ff'/></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM Sans:wght@200;300;400;500&display=swap" rel="stylesheet"/>
