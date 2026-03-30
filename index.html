@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <script>
-  fetch('/api/config').then(r=>r.json()).then(d=>{
+  fetch(`${API}/api/config`).then(r=>r.json()).then(d=>{
     window.__PAYSTACK_PK__       = d.paystack_public_key;
     window.__FLW_PK__            = d.flutterwave_public_key;
     window.__MONNIFY_API_KEY__   = d.monnify_api_key;
