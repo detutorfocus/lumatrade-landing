@@ -12,8 +12,7 @@
   }).catch(()=>{});
 </script>
   <title>LumaTradeFX — Institutional Smart Money Trading</title>
-  '12' cy='13' r='2.5' fill='%2300d4ff'/></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM Sans:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM Sans:wght@200;300;400;500&family=Syne:wght@700;800;900&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --gold: #00d4ff;
@@ -107,30 +106,21 @@
     }
 
     .logo-mark {
-      width: 36px; height: 36px;
-      border: 1.5px solid var(--gold);
-      border-radius: 6px;
+      width: 32px; height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .logo-mark::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 40%, rgba(201,168,76,0.15));
-    }
+    .logo-mark::after { display: none; }
 
-    .logo-mark svg { width: 20px; height: 20px; }
+    .logo-mark svg { width: 32px; height: 32px; }
 
     .logo-text {
-      font-family: 'Syne', serif;
+      font-family: 'Syne', sans-serif;
       font-size: 1.4rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
+      font-weight: 800;
+      letter-spacing: 0.04em;
       color: var(--text);
     }
 
@@ -930,12 +920,13 @@
   <nav>
     <a href="#" class="nav-logo">
       <div class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5">
-          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-          <polyline points="16 7 22 7 22 13"/>
+        <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+          <polygon points="12,2 22,20 2,20" fill="#00d4ff" opacity="0.9"/>
+          <polygon points="12,7 19,18 5,18" fill="#070c14" opacity="0.6"/>
+          <circle cx="12" cy="13" r="2.5" fill="#00d4ff"/>
         </svg>
       </div>
-      <span class="logo-text">Luma<span>Trade</span>FX</span>
+      <span class="logo-text">Luma<span>FX</span></span>
     </a>
 
     <ul class="nav-links">
@@ -987,11 +978,11 @@
         <div class="signal-row">
           <div class="signal-item">
             <div class="signal-label">Pair</div>
-            <div class="signal-value gold">XAUUSDm</div>
+            <div class="signal-value gold" data-live="hero-symbol">XAUUSDm</div>
           </div>
           <div class="signal-item">
             <div class="signal-label">Direction</div>
-            <div class="signal-value buy">▲ BUY</div>
+            <div class="signal-value buy" data-live="hero-dir">▲ BUY</div>
           </div>
         </div>
 
@@ -1022,15 +1013,15 @@
         <div class="entry-levels">
           <div class="level-item">
             <div class="level-tag entry">Entry</div>
-            <div class="level-price">2314.50</div>
+            <div class="level-price" data-live="hero-entry">—</div>
           </div>
           <div class="level-item">
             <div class="level-tag sl">Stop Loss</div>
-            <div class="level-price">2302.20</div>
+            <div class="level-price" data-live="hero-sl">—</div>
           </div>
           <div class="level-item">
             <div class="level-tag tp">Take Profit</div>
-            <div class="level-price">2333.00</div>
+            <div class="level-price" data-live="hero-tp">—</div>
           </div>
         </div>
 
@@ -1048,20 +1039,20 @@
       <!-- First set -->
       <div class="ticker-item">
         <span class="ticker-pair">EURUSD</span>
-        <span class="ticker-price">1.08432</span>
-        <span class="ticker-up">+0.12%</span>
+        <span class="ticker-price" data-live="eur-price">—</span>
+        <span data-live="eur-chg" class="ticker-up">—</span>
       </div>
       <span class="ticker-sep">·</span>
       <div class="ticker-item">
         <span class="ticker-pair">XAUUSD</span>
-        <span class="ticker-price">2,314.50</span>
-        <span class="ticker-up">+0.87%</span>
+        <span class="ticker-price" data-live="xau-price">—</span>
+        <span data-live="xau-chg" class="ticker-up">—</span>
       </div>
       <span class="ticker-sep">·</span>
       <div class="ticker-item">
         <span class="ticker-pair">BTCUSD</span>
-        <span class="ticker-price">83,240.00</span>
-        <span class="ticker-down">−1.24%</span>
+        <span class="ticker-price" data-live="btc-price">—</span>
+        <span data-live="btc-chg" class="ticker-up">—</span>
       </div>
       <span class="ticker-sep">·</span>
       <div class="ticker-item">
@@ -1085,20 +1076,20 @@
       <!-- Duplicate for seamless loop -->
       <div class="ticker-item">
         <span class="ticker-pair">EURUSD</span>
-        <span class="ticker-price">1.08432</span>
-        <span class="ticker-up">+0.12%</span>
+        <span class="ticker-price" data-live="eur-price">—</span>
+        <span data-live="eur-chg" class="ticker-up">—</span>
       </div>
       <span class="ticker-sep">·</span>
       <div class="ticker-item">
         <span class="ticker-pair">XAUUSD</span>
-        <span class="ticker-price">2,314.50</span>
-        <span class="ticker-up">+0.87%</span>
+        <span class="ticker-price" data-live="xau-price">—</span>
+        <span data-live="xau-chg" class="ticker-up">—</span>
       </div>
       <span class="ticker-sep">·</span>
       <div class="ticker-item">
         <span class="ticker-pair">BTCUSD</span>
-        <span class="ticker-price">83,240.00</span>
-        <span class="ticker-down">−1.24%</span>
+        <span class="ticker-price" data-live="btc-price">—</span>
+        <span data-live="btc-chg" class="ticker-up">—</span>
       </div>
       <span class="ticker-sep">·</span>
       <div class="ticker-item">
@@ -1285,7 +1276,7 @@
 
       <div class="price-card featured">
         <div class="price-tier gold-text">⚡ Premium</div>
-        <div class="price-amount" style="color:var(--gold)"><span class="price-currency">$</span>29</div>
+        <div class="price-amount" style="color:var(--gold)"><span class="price-currency">$</span>10</div>
         <div class="price-period">per month</div>
         <ul class="price-features">
           <li>
@@ -1339,16 +1330,21 @@
 
   <script>
     // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => observer.observe(r));
+    try {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(r => observer.observe(r));
+    } catch(e) {
+      // Fallback: show all reveal elements immediately on unsupported browsers
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
 
     // Subtle parallax on hero right panel
     const heroRight = document.querySelector('.hero-right');
@@ -1361,16 +1357,81 @@
     }
 
     // Animate numbers in stat band when visible
-    const statNums = document.querySelectorAll('.stat-num');
-    const numObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.animation = 'fadeUp 0.8s ease forwards';
-          numObserver.unobserve(e.target);
-        }
+    try {
+      const statNums = document.querySelectorAll('.stat-num');
+      const numObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.animation = 'fadeUp 0.8s ease forwards';
+            numObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      statNums.forEach(n => numObserver.observe(n));
+    } catch(e) {}
+
+    // ── REAL-TIME PRICES ──────────────────────────────────────────
+    const LAPI = "https://api.lumafxt.com";
+    const prevPrices = {};
+
+    function fmtEur(p) { return p ? p.toFixed(5) : "—"; }
+    function fmtXau(p) { return p ? p.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "—"; }
+    function fmtBtc(p) { return p ? Math.round(p).toLocaleString() : "—"; }
+
+    function setLive(attr, text, cls) {
+      document.querySelectorAll('[data-live="' + attr + '"]').forEach(function(el) {
+        el.textContent = text;
+        if (cls) el.className = cls;
       });
-    }, { threshold: 0.5 });
-    statNums.forEach(n => numObserver.observe(n));
+    }
+
+    function fetchTick(symbol) {
+      return fetch(LAPI + "/api/market/public/tick/" + symbol)
+        .then(function(r) { return r.ok ? r.json() : null; })
+        .catch(function() { return null; });
+    }
+
+    function updatePrices() {
+      // EURUSD
+      fetchTick("EURUSDm").then(function(eur) {
+        if (!eur || !eur.bid) return;
+        var prev = prevPrices.EUR || eur.bid;
+        var chg = (eur.bid - prev) / prev * 100;
+        var chgStr = (chg >= 0 ? "+" : "") + chg.toFixed(2) + "%";
+        setLive("eur-price", fmtEur(eur.bid));
+        setLive("eur-chg", chgStr, chg >= 0 ? "ticker-up" : "ticker-down");
+        prevPrices.EUR = eur.bid;
+      });
+
+      // XAUUSD
+      fetchTick("XAUUSDm").then(function(xau) {
+        if (!xau || !xau.bid) return;
+        var prev = prevPrices.XAU || xau.bid;
+        var chg = (xau.bid - prev) / prev * 100;
+        var chgStr = (chg >= 0 ? "+" : "") + chg.toFixed(2) + "%";
+        setLive("xau-price", fmtXau(xau.bid));
+        setLive("xau-chg", chgStr, chg >= 0 ? "ticker-up" : "ticker-down");
+        var atr = xau.bid * 0.003;
+        setLive("hero-entry", fmtXau(xau.bid));
+        setLive("hero-sl", (xau.bid - atr * 2).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        setLive("hero-tp", (xau.bid + atr * 3).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        prevPrices.XAU = xau.bid;
+      });
+
+      // BTCUSD
+      fetchTick("BTCUSDm").then(function(btc) {
+        if (!btc || !btc.bid) return;
+        var prev = prevPrices.BTC || btc.bid;
+        var chg = (btc.bid - prev) / prev * 100;
+        var chgStr = (chg >= 0 ? "+" : "") + chg.toFixed(2) + "%";
+        setLive("btc-price", fmtBtc(btc.bid));
+        setLive("btc-chg", chgStr, chg >= 0 ? "ticker-up" : "ticker-down");
+        prevPrices.BTC = btc.bid;
+      });
+    }
+
+    updatePrices();
+    setInterval(updatePrices, 5000);
   </script>
 </body>
 </html>
